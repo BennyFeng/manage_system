@@ -1,0 +1,19 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  pay_month: MyString
+  emp_number: MyString
+  pay_basic: 1
+  pay_prize: 1
+  pay_overtime: 1
+  pay_payable: 1
+  pay_paymoney: 1
+
+two:
+  pay_month: MyString
+  emp_number: MyString
+  pay_basic: 1
+  pay_prize: 1
+  pay_overtime: 1
+  pay_payable: 1
+  pay_paymoney: 1

@@ -1,23 +1,25 @@
-<%= form_for :basic, url: root_path do |f| %>
-	<p>
-		员工编号: <%= f.text_field :emp_number  %>
-	</p>
+<!DOCTYPE>
+<html>
+	<head>
+	</head>	
+	<body>
+		<%= form_for :basic, url: root_path do |f| %>
+			<p>
+				帐号: <%= f.text_field :emp_number  %>
+			</p>
 
-	<p>
-		密码: <%= f.password_field :password  %>
-	</p>
+			<p>
+				密码: <%= f.password_field :password  %>
+			</p>
 
-	<p>
-		<%= @hint  %>
-	</p>
+			<p>
+				<%= @hint  %>
+			</p>
 
-	<p>
-	<%= f.submit "登录" %>
-	<%= check_box_tag(:remember)  %>
-	<%= label_tag(:remember, "记住用户名")  %>
-	</p>
-
-	<p>
-		<%= f.select(:identity, [['普通员工', 1], ['管理员', 2]])  %>
-	</p>
-<% end %>
+			<p>
+				<%= f.submit "登录" %>
+				<%= f.select(:idenity, [['', 0], ['普通员工', 1], ['管理员', 2]])  %>
+			</p>
+		<% end %>
+	</body>
+</html>

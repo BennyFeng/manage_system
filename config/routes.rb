@@ -2,7 +2,8 @@ Rails.application.routes.draw do
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 	root 'logins#login'
-	post '/', to: 'logins#idenity'
+	post '/', to: 'logins#login'
+	get '/users', to: 'users#index'
 	#post '/managements', to: 'managements#index'
 	resources :managements
   # You can have the root of your site routed with "root"

@@ -1,45 +1,25 @@
-<!DOCTYPE>
+<!DOCTYPE html>
 <html>
-  <head></head>
+  <head>
+    <%= stylesheet_link_tag "managements.scss.erb" %>
+  </head>
   <body>
-    <div id="head">
-      <p id="time"></p>
-      <p>当前用户:<%= cookies[:emp_num]  %></p>		
+    <div id="mge_head">
+      <p id="uname">当前用户:<font size="5" ><%= cookies[:emp_num]  %></font></p>
+      <p id="mge_logout">
+        <%  if  %>
+          <%= link_to '退出帐号', root_path%>
+      </p>
     </div>
-    <div id="left">
+    <div id="mge_left">
+      hello world!sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
     </div>
-    <div id="right">
+    <div id="mge_right">
+      ffffffffffffff ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     </div>
-    <div id="foot">
+    <div id="mge_foot">
+      ffffffffffffff ffffffffff ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     </div>
-
-    <script type="text/javascript">
-      window.onload = function(){
-        var t = null;
-	dt = new Date();
-	var y = dt.getFullYear();
-	var mn = dt.getMonth();
-	var d = dt.getDate();
-	var h = dt.getHours();
-	var m = dt.getMinutes();
-	var s = dt.getSeconds();
-				
-	document.getElementById("time").innerHTML = "当前时间:"+y+"年"+mn+"月"+d+"日"+""+h+":"+m+":"+s
-	t = setTimeout(time,1000)
-	function time(){
-	  clerTimeout(t);//清除定时器
-	  dt = new Date();
-	  var y = dt.getFullYear();
-	  var mn = dt.getMonth();
-	  var d = dt.getDate();
-	  var h = dt.getHours();
-	  var m = dt.getMinutes();
-	  var s = dt.getSeconds();
-				
-	  document.getElementById("time").innerHTML = "当前时间:"+y+"年"+mn+"月"+d+"日"+""+h+":"+m+":"+s	
-	  t = setTimeout(time, 1000);//设定定时器，循环执行
-	}
-      }
-    </script>
   </body>
 </html>
+

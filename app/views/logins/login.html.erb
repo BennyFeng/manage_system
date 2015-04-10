@@ -1,25 +1,30 @@
 <!DOCTYPE>
 <html>
-	<head>
-	</head>	
-	<body>
-		<%= form_for :basic, url: root_path do |f| %>
-			<p>
-				帐号: <%= f.text_field :emp_number  %>
-			</p>
+  <head>
+  </head>
+  <body>
+    <div id="login_head"><h1>职工信息系统</h1></div>
+    <div id="login">
+      <%= form_for :basic, url: root_path do |f| %>
+        <p>
+          帐号: <%= f.text_field :emp_number  %>
+        </p>
 
-			<p>
-				密码: <%= f.password_field :password  %>
-			</p>
+        <p>
+          密码: <%= f.password_field :password  %>
+        </p>
 
-			<p>
-				<%= @hint  %>
-			</p>
+        <p>
+          <%= @hint  %>
+          <%= cookies[:hint] %>
+        </p>
 
-			<p>
-				<%= f.submit "登录" %>
-				<%= f.select(:idenity, [['', 0], ['普通员工', 1], ['管理员', 2]])  %>
-			</p>
-		<% end %>
-	</body>
-</html>
+        <p id="login_btn">
+          <%= f.submit "登录" %>
+          <%= f.select(:idenity, [['普通员工', 1], ['管理员', 2]])  %>
+        </p>
+      <% end %>
+    </div>
+  </body>
+</html>	
+

@@ -2,7 +2,21 @@
 <html>
   <head></head>
   <body>
-    <p>当前时间:<%= @date  %></p>
-    <p>当前用户:<%= cookies[:emp_num]  %></p>
+    <div id="mge_head">
+      <p id="uname">当前用户:<font size="5" ><%= cookies[:emp_num]  %></font></p>
+      <p id="mge_logout">
+        <%  if  %>
+          <%= link_to '退出帐号', root_path%>
+      </p>
+    </div>
+    <div id="mge_left">
+      hello world!sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+    </div>
+    <div id="mge_right">
+      ffffffffffffff ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+    </div>
+    <div id="mge_foot">
+      ffffffffffffff ffffffffff ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+    </div>
   </body>
 </html>

@@ -1,5 +1,7 @@
 class LoginsController < ApplicationController
   def login
+    cookies[:emp_id] = ''
+    cookies[:emp_num] = ''
     unless request.get?
       @hint = "ok"
         @id = params[:basic][:idenity]
@@ -12,7 +14,7 @@ class LoginsController < ApplicationController
         end
 
         if @user == nil
-          @hint = '用户不存在！'
+          cookies[:hint] = '用户不存在！'
           render action: 'login'
         elsif @user.password == params[:basic][:password]
           cookies[:emp_id] = @id
@@ -23,13 +25,8 @@ class LoginsController < ApplicationController
             render '/managements/wait.html.erb'
           end
         else
-          @hint = "登录失败，请检查您的登录信息是否有误"
+          cookies[:hint] = "登录失败，请检查您的登录信息是否有误"
         end
-    end
-
-    if request.url == root_path
-      cookies.delete(:emp_num)
-      cookies.delete(:emp_id)
     end
   end
 

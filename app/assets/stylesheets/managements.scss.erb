@@ -8,8 +8,8 @@ h1{
 #mge_head{
   float: left;
   width: 98%;
-  height: 20%;
-  margin: 1% auto;
+  height: 10%;
+  margin: 0.5% auto;
   background:{
     color: lightgreen;
   }
@@ -18,18 +18,43 @@ h1{
 #mge_left{
   width: 15%;
   height: 75%;
-  margin: 1% 0;
+  margin: 0.5% 0;
   background:{
-    color: lightgreen;
+    color: #172244;
   }
   float: left;
   word-wrap: break-word;
+  .sider{
+    width: 98%;
+    height: 6.5%;
+    margin: 1% 0;
+    line-height: 40px;
+    color: white;
+    font-size: 20px;
+    display: block;
+    text-decoration: none;
+    text-align: center;
+  }
+
+  ul{
+    margin: 5% 10%;
+    list-style: none;
+    color: white;
+    display: none;
+  }
+
+  .sider:hover{
+    background:{
+      color:black;
+    }
+    border: 2px solid black;
+  }
 }
 
 #mge_right{
   width: 82%;
   height: 75%;
-  margin: 1% 1%;
+  margin: 0.5% 1%;
   background:{
     color: lightgreen;
   }
@@ -42,23 +67,30 @@ h1{
   word-wrap: break-word;
   width: 98%;
   height: 5%;
-  margin: 1% auto;
+  margin: 0.5% auto;
   text-align: center;
   background:{
     color: lightgreen;
   }
 }
 
-#uname{
-  width: 12%;
-  height: 4%;
-  margin: 7% 0 0 0;
+.uname{
+  width: 18%;
+  height: 40%;
+  margin: 3% 0 0 0;
   float: left;
 }
 
-#mge_logout{
-  width: 10%;
-  height: 4%;
-  margin: 8% 0 0 0;
+.mge_logout{
+  width: 7%;
+  height: 40%;
+  margin: 3% 0 0 0;
+  float: right;
+}
+
+.time{
+  width: 20%;
+  height: 40%;
+  margin: 3% 0 0 5%;
   float: left;
 }

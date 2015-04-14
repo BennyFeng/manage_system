@@ -1,6 +1,6 @@
 class LoginsController < ApplicationController
   def login
-    cookies[:emp_id] = ''
+    session[:emp_id] = nil
     cookies[:emp_num] = ''
     unless request.get?
       @hint = "ok"
@@ -17,7 +17,7 @@ class LoginsController < ApplicationController
           cookies[:hint] = '用户不存在！'
           render action: 'login'
         elsif @user.password == params[:basic][:password]
-          cookies[:emp_id] = @id
+          session[:emp_id] = @id
           cookies[:emp_num] = @emp_num
           if @id == '1'
             render '/users/wait.html.erb'

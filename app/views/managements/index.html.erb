@@ -4,14 +4,45 @@
   </head>
   <body>
     <div id="mge_head">
-      <p id="uname">当前用户:<font size="5" ><%= cookies[:emp_num]  %></font></p>
-      <p id="mge_logout">
-        <%  if  %>
+      <p class ="uname"><font size="4" >当前用户:<%=  cookies[:emp_num] %></font></p>
+      <p class="time"><font size="4" >当前时间:</font></p>
+      <p class ="mge_logout">
           <%= link_to '退出帐号', root_path%>
       </p>
     </div>
     <div id="mge_left">
-      hello world!sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+      <a href="" class="sider">
+        <span>
+          企业公告
+        </span>
+      </a>
+      <ul>
+          <li>添加公告</li>
+          <li>删除公告</li>
+          <li>修改公告</li>
+      </ul>
+      <a href="" class="sider">
+        <span>职工档案</span>
+      </a>
+      <ul>
+          <li>添加档案</li>
+          <li>删除档案</li>
+          <li>修改档案</li>
+      </ul>
+      <a href="" class="sider">
+        <span>薪酬记录</span>
+      </a>
+      <ul>
+          <li>添加薪酬记录</li>
+          <li>删除薪酬记录</li>
+          <li>修改薪酬记录</li>
+      </ul>
+      <a href="" class="sider"><span>出勤记录</span></a>
+      <ul>
+          <li>添加出勤记录</li>
+          <li>删除出勤记录</li>
+          <li>修改出勤记录</li>
+      </ul>
     </div>
     <div id="mge_right">
       ffffffffffffff ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff

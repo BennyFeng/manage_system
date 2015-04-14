@@ -3,14 +3,23 @@
   <head></head>
   <body>
     <div id="mge_head">
-      <p id="uname">当前用户:<font size="5" ><%= cookies[:emp_num]  %></font></p>
-      <p id="mge_logout">
-        <%  if  %>
+      <p class ="uname"><font size="4" >当前用户:<%= cookies[:emp_num]  %></font></p>
+      <p class="time"><font size="4" >当前时间:</font></p>
+      <p class ="mge_logout">
           <%= link_to '退出帐号', root_path%>
       </p>
     </div>
     <div id="mge_left">
-      hello world!sssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssssss
+      <a href="" class="sider">
+        <span>公司公告</span>
+      </a>
+      <a href="" class="sider">
+        <span>个人档案</span>
+      </a>
+      <a href="" class="sider">
+        <span>工资信息</span>
+      </a>
+      <a href="" class="sider"><span>出勤信息</span></a>
     </div>
     <div id="mge_right">
       ffffffffffffff ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff

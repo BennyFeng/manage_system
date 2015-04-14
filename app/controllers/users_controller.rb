@@ -1,11 +1,15 @@
 class UsersController < ApplicationController
   def index
+    cookies[:hint] = ''
     @num = cookies[:emp_num]
-    @id = cookies[:emp_id]
+    @id = session[:emp_id]
     if @num == '' || @id == ''
       @hint = "您还没登录，请您先登录"
-      cookies[:hint] = @hint
+      redirect_to root_path
+    elsif @id != '1'
+      @hint = "非法操作,请重新登录!"
       redirect_to root_path
     end
+    cookies[:hint] = @hint
   end
 end

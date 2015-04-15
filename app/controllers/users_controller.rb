@@ -11,5 +11,14 @@ class UsersController < ApplicationController
       redirect_to root_path
     end
     cookies[:hint] = @hint
+    if params[:page] == '1'
+      @pg = "personal.html.erb"
+    elsif params[:page] == '2'
+      @pg = "laborage.html.erb"
+    elsif params[:page] == '3'
+      @pg = "attendance.html.erb"
+    else
+      @pg = "announce.html.erb"
+    end
   end
 end

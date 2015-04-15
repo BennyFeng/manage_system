@@ -10,21 +10,16 @@
       </p>
     </div>
     <div id="mge_left">
-      <a href="" class="sider">
-        <span>公司公告</span>
-      </a>
-      <a href="" class="sider">
-        <span>个人档案</span>
-      </a>
-      <a href="" class="sider">
-        <span>工资信息</span>
-      </a>
-      <a href="" class="sider"><span>出勤信息</span></a>
+      <%= link_to content_tag(:span, "公司公告"),{:controller=>'users', :action=>'index'},{:class=>'sider'} %>
+      <%= link_to content_tag(:span, "个人档案"),{:controller=>'users', :action=>'index',:page=>1},{:class=>'sider'} %>
+      <%= link_to content_tag(:span, "工资信息"),{:controller=>'users', :action=>'index',:page=>2},{:class=>'sider'} %>
+      <%= link_to content_tag(:span, "出勤信息"),{:controller=>'users', :action=>'index',:page=>3},{:class=>'sider'} %>
     </div>
     <div id="mge_right">
-      ffffffffffffff ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+      <%=  params[:page] %>
+      <%= render @pg %>
     </div>
-    <div id="mge_foot">
+     <div id="mge_foot">
       ffffffffffffff ffffffffff ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
     </div>
   </body>

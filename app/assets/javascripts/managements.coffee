@@ -10,26 +10,27 @@ window.onload = ->
   ul3 = document.getElementById("ul3")
   sd4 = document.getElementById("sider4")
   ul4 = document.getElementById("ul4")
-  sd1.onmouseover = ->
+  sd1.onclick = ->
     if ul1.style.display == 'none'
       ul1.style.display = 'block'
-  sd1.onmouseout = ->
-    ul1.style.display = 'none'
+    else
+      ul1.style.display = 'none'
 
-  sd2.onmouseover = ->
+  sd2.onclick = ->
     if ul2.style.display == 'none'
       ul2.style.display = 'block'
-    sd2.onmouseout = ->
+    else
       ul2.style.display = 'none'
 
-  sd3.onmouseover = ->
+  sd3.onclick = ->
     if ul3.style.display == 'none'
       ul3.style.display = 'block'
-    sd3.onmouseout = -> 
+    else
       ul3.style.display = 'none'
 
-  sd4.onmouseover = ->
+  sd4.onclick = ->
     if ul4.style.display == 'none'
       ul4.style.display = 'block'
-    sd4.onmouseout = -> 
+    else
       ul4.style.display = 'none'
+

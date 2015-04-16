@@ -11,6 +11,15 @@ class ManagementsController < ApplicationController
       redirect_to root_path
     end
     cookies[:hint] = @hint
+    if params[:page] == '1'
+      @pg = "addannounce.html.erb"
+    elsif params[:page] == '2'
+      @pg = "editannounce.html.erb"
+    elsif params[:page] == '3'
+      @pg = "deleteannounce.html.erb"
+    else
+      @pg = "announce.html.erb"
+    end
   end
 
   def create

@@ -1,12 +1,12 @@
 <div id="mge_head">
-      <p class ="uname"><font size="4" >当前用户:<%= cookies[:emp_num]  %></font></p>
-      <p class="time"><font size="4" >当前时间:</font></p>
+      <p class ="uname">当前用户:<%= cookies[:emp_num]  %></p>
+      <p id="time"></p>
       <p class ="mge_logout">
           <%= link_to '退出帐号', root_path%>
       </p>
     </div>
     <div id="mge_left">
-      <%= link_to content_tag(:span, "公司公告"),{:controller=>'users', :action=>'index'},{:class=>'sider'} %>
+      <%= link_to content_tag(:span, "企业公告"),{:controller=>'users', :action=>'index'},{:class=>'sider'} %>
       <%= link_to content_tag(:span, "个人档案"),{:controller=>'users', :action=>'index',:page=>1},{:class=>'sider'} %>
       <%= link_to content_tag(:span, "工资信息"),{:controller=>'users', :action=>'index',:page=>2},{:class=>'sider'} %>
       <%= link_to content_tag(:span, "出勤信息"),{:controller=>'users', :action=>'index',:page=>3},{:class=>'sider'} %>

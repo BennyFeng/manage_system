@@ -1,45 +1,15 @@
 <div id="mge_head">
-      <p class ="uname">当前用户:<%=  cookies[:emp_num] %></p>
-      <p class="time">当前时间:</p>
+      <p class ="uname">当前用户:<%= cookies[:emp_num] %></p>
+      <p id="time"></p>
       <p class ="mge_logout">
           <%= link_to '退出帐号', root_path%>
       </p>
     </div>
     <div id="mge_left">
-      <div id="sider1">
-        <span class="sider" >
-          企业公告
-        </span>
-        <ul id="ul1">
-          <li><a href="/managements?page=1">添加公告</a></li>
-          <li><a href="/managements?page=2">删除公告</a></li>
-          <li><a href="/managements?page=3">修改公告</a></li>
-        </ul>
-      </div>
-      <div id="sider2">
-        <span class="sider" id="sider2">职工档案</span>
-        <ul id="ul2">
-          <li><a href="javascript:">添加档案</a></li>
-          <li><a href="javascript:">删除档案</a></li>
-          <li><a href="javascript:">修改档案</a></li>
-        </ul>
-      </div>
-      <div id="sider3">
-        <span class="sider" id="sider3">薪酬记录</span>
-        <ul id="ul3">
-          <li><a href="javascript:">添加薪酬记录</a></li>
-          <li><a href="javascript:">删除薪酬记录</a></li>
-          <li><a href="javascript:">修改薪酬记录</a></li>
-        </ul>
-      </div>
-      <div id="sider4">
-        <span class="sider" id="sider4">出勤记录</span>
-        <ul id="ul4">
-          <li><a href="javascript:">添加出勤记录</a></li>
-          <li><a href="javascript:">删除出勤记录</a></li>
-          <li><a href="javascript:">修改出勤记录</a></li>
-        </ul>
-      </div>
+      <%= link_to content_tag(:span, "企业公告"),{:controller=>'managements', :action=>'index'},{:class=>'sider'} %>
+      <%= link_to content_tag(:span, "职工档案"),{:controller=>'managements', :action=>'index', :page=>1},{:class=>'sider'} %>
+      <%= link_to content_tag(:span, "薪酬记录"),{:controller=>'managements', :action=>'index', :page=>2},{:class=>'sider'} %>
+      <%= link_to content_tag(:span, "出勤记录"),{:controller=>'managements', :action=>'index', :page=>3},{:class=>'sider'} %>
     </div>
     <div id="mge_right">
       <%= render @pg %>

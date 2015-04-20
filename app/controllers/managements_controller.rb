@@ -12,16 +12,24 @@ class ManagementsController < ApplicationController
     end
     cookies[:hint] = @hint
     if params[:page] == '1'
-      @pg = "addannounce.html.erb"
+      @pg = "doc.html.erb"
     elsif params[:page] == '2'
-      @pg = "editannounce.html.erb"
+      @pg = "lag.html.erb"
     elsif params[:page] == '3'
-      @pg = "deleteannounce.html.erb"
+      @pg = "att.html.erb"
     else
       @pg = "announce.html.erb"
     end
+    @emp = Basic.all
   end
 
   def create
+  end
+
+  def destroy
+      @empid = cookies[:empid]
+      emp = Basic.find(@empid)
+      emp.destroy
+      redirect_to managements_path
   end
 end

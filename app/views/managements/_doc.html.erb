@@ -1,3 +1,5 @@
+<%= link_to content_tag(:span, "添加员工档案"),"/managements/adddoc",{:class=>'ance'} %>
+<br >
 <table>
   <tr>
     <th>员工号码</th>
@@ -6,24 +8,24 @@
     <th>操作</th>
   </tr>
   <% @emp.each do |employee| %>
-    <% if employee == nil %>
-      记录为空
-    <% else %>
     <div style="display:none"><%= cookies[:empid]=employee.id %></div>
     <tr>
       <td><%= employee.emp_number %></td>
       <td><%= employee.emo_name %></td>
-      <td><%= employee.emp_sex %></td>
+      <td>
+        <% if employee.emp_sex == '1' %>
+        男
+        <%  elsif employee.emp_sex == '2' %>
+        女
+        <% end %>
+      </td>
       <td>
         <%= link_to "详情", {:controller=>'managements', :action=>'index'}%>
-        <%= link_to "删除", {:controller=>'managements', :action=>'destroy'}, data: { confirm: 'Are you sure?' }%>
+         <%= link_to "删除", {:controller=>'managements', :action=>'destroy'}, data: { confirm: 'Are you sure?' }%>
         <%= link_to "修改", {:controller=>'managements', :action=>'index'}%>
       </td>
     </tr>
-    <% end %>
   <% end %>
 </table>
-<br />
-<%= link_to content_tag(:span, "添加员工档案"),{:controller=>'managements', :action=>'index'},{:class=>'ance'} %>
-<%= link_to content_tag(:span, "删除员工档案"),{:controller=>'managements', :action=>'index'},{:class=>'ance'} %>
-<%= link_to content_tag(:span, "修改员工档案"),{:controller=>'managements', :action=>'index'},{:class=>'ance'} %>
+<div id="tips"><h3><%= @tips %></h3></div>
+

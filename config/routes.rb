@@ -6,6 +6,8 @@ Rails.application.routes.draw do
   get '/users', to: 'users#index'
   #post '/managements', to: 'managements#index'
   get '/managements/destroy', to: 'managements#destroy'
+  get '/managements/adddoc', to: 'managements#adddoc'
+  post '/managements/createdoc', to: 'managements#createdoc'
   resources :managements
   get '/managements?page=1', to: 'managements#index'
   get '/managements?page=2', to: 'managements#index'

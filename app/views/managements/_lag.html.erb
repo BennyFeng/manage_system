@@ -1,3 +1,24 @@
-<%= link_to content_tag(:span, "添加薪酬记录"),{:controller=>'managements', :action=>'index'},{:class=>'ance'} %>
-<%= link_to content_tag(:span, "删除薪酬记录"),{:controller=>'managements', :action=>'index'},{:class=>'ance'} %>
-<%= link_to content_tag(:span, "修改薪酬记录"),{:controller=>'managements', :action=>'index'},{:class=>'ance'} %>
+<%= link_to content_tag(:span, "添加薪酬记录"),{:controller=>'managements', :action=>'addlag'},{:class=>'ance'} %>
+<br >
+<table class="tb">
+  <tr>
+    <th>工资发放日期</th>
+    <th>员工姓名</th>
+    <th>实付金额</th>
+    <th>操作</th>
+  </tr>
+  <% @lag.each do |laborage| %>
+    <div style="display:none"><%= @lagid=laborage.id %></div>
+    <tr>
+      <td><%= laborage.pay_month %></td>
+      <td><%= laborage.emp_name %></td>
+      <td><%= laborage.pay_paymoney %></td>
+      <td>
+        <%= link_to "详情", {:controller=>'managements', :action=>'showlag', :lid=>@lagid}%>
+         <%= link_to "删除", {:controller=>'managements', :action=>'deletelag', :lid=>@lagid}, data: { confirm: '确定删除吗?' }%>
+        <%= link_to "修改", {:controller=>'managements', :action=>'editlag', :lid=>@lagid}%>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<div id="tips"><h3><%= @tips %></h3></div>

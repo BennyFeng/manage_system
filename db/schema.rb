@@ -11,13 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150408054104) do
+ActiveRecord::Schema.define(version: 20150422083309) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "username",   limit: 255
     t.string   "password",   limit: 255
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
+  end
+
+  create_table "announces", force: :cascade do |t|
+    t.string   "tittle",     limit: 255
+    t.text     "post",       limit: 65535
+    t.string   "author",     limit: 255
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "basics", force: :cascade do |t|
@@ -44,6 +52,8 @@ ActiveRecord::Schema.define(version: 20150408054104) do
     t.integer  "basic_id",     limit: 4
     t.datetime "created_at",               null: false
     t.datetime "updated_at",               null: false
+    t.integer  "pay_recoup",   limit: 4
+    t.string   "emp_name",     limit: 255
   end
 
   add_index "laborages", ["basic_id"], name: "index_laborages_on_basic_id", using: :btree

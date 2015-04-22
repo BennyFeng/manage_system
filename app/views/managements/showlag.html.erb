@@ -1,0 +1,26 @@
+<table class ="showtb">
+  <tr>
+    <td>工资发放日期:</td>
+    <td><%= @lag.pay_month %></td>
+    <td> 员工姓名:</td>
+    <td><%= @lag.emp_name %></td>
+  </tr>
+  <tr>
+    <td>基本工资:</td>
+    <td><%= @lag.pay_basic %>元</td>
+    <td>奖金:</td>
+    <td><%= @lag.pay_prize %>元</td>
+  </tr>
+  <tr>
+    <td>加班费:</td>
+    <td><%= @lag.pay_overtime %>元</td>
+    <td>应扣金额:</td>
+    <td><%= @lag.pay_recoup %>元</td>
+  </tr>
+  <tr>
+  <td>应付金额:</td>
+  <td><%= @lag.pay_payable %>元</td>
+  <td>实付金额:</td>
+  <td><%= @lag.pay_paymoney %>元</td>
+  </tr>
+</table>

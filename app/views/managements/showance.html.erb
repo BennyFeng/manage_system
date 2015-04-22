@@ -1,0 +1,10 @@
+<div class ="showtb">
+  <h1><%= @ance.tittle %></h1>
+  <p>
+    作者:<%= @ance.author %>
+    &nbsp&nbsp&nbsp&nbsp
+    发布时间:<%= @ance.created_at.to_time.strftime('%Y-%m-%d %H:%M:%S') %>
+  </p>
+  <p><%= @ance.post%></p>
+  <p><%= link_to "返回首页", managements_path %></p>
+</div>

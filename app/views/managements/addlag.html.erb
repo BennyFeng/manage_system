@@ -1,0 +1,45 @@
+<div class="form">
+  <div>
+    <%= form_for :lag, url: '/managements/createlag' do |f| %>
+      <p>
+        工资发放日期: <%= f.date_field :pay_month  %>
+      </p>
+
+      <p>
+        员工姓名: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= f.text_field :emp_name  %>
+      </p>
+
+      <p>
+        员工号码: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= f.text_field :emp_number  %>
+      </p>
+
+      <p>
+        基本工资: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= f.text_field :pay_basic  %>
+      </p>
+
+      <p>
+        奖金: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= f.text_field :pay_prize  %>
+      </p>
+
+      <p>
+        加班费: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= f.telephone_field :pay_overtime  %>
+      </p>
+
+      <p>
+        应扣金额: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= f.text_field :pay_recoup  %>
+      </p>
+
+      <p>
+        应付金额: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= f.text_field :pay_payable  %>
+      </p>
+
+      <p>
+        实付金额: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= f.text_field :pay_paymoney  %>
+      </p>
+
+     <p id="login_btn">
+       <%= f.submit "提交", data: { confirm: '确定提交吗?' } %>
+      </p>
+    <% end %>
+  </div>
+ </div>

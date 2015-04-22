@@ -1,3 +1,23 @@
-<a href="" ><span class="ance">添加公告</span></a>
-<a href="" ><span class="ance">删除公告</span></a>
-<a href="" ><span class="ance">修改公告</span></a>
+<%= link_to content_tag(:span, "添加公告"),"/managements/addance",{:class=>'ance'} %>
+<br >
+<table class="tb">
+  <tr>
+    <th>公告标题</th>
+    <th>发布人</th>
+    <th>发布时间</th>
+    <th>操作</th>
+  </tr>
+  <% @ance.each do |announce| %>
+    <div style="display:none"><%= @postid=announce.id %></div>
+    <tr>
+      <td><%= link_to announce.tittle, {:controller=>'managements', :action=>'showance', :anid=>@postid}%></td>
+      <td><%= announce.author %></td>
+      <td><%= announce.created_at.to_time.strftime('%Y-%m-%d %H:%M:%S') %></td>
+      <td>
+         <%= link_to "删除", {:controller=>'managements', :action=>'deleteance', :anid=>@postid}, data: { confirm: '确定删除吗?' }%>
+        <%= link_to "修改", {:controller=>'managements', :action=>'editance', :anid=>@postid}%>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<div id="tips"><h3><%= @tips %></h3></div>

@@ -1,0 +1,52 @@
+<div class="form">
+  <div>
+    <%= form_for :doc, url: '/managements/updatedoc' do |f| %>
+      <p style="display:none">
+        &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <%= f.text_field :id, :value=>@emp.id %>
+      </p>
+      <p>
+        员工号码: &nbsp&nbsp&nbsp&nbsp<%= f.text_field :emp_number, :value=>@emp.emp_number %>
+      </p>
+
+      <p>
+        员工姓名: &nbsp&nbsp&nbsp&nbsp<%= f.text_field :emo_name, :value=>@emp.emo_name %>
+      </p>
+
+      <p>
+        性别: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+        <% if @emp.emp_sex == '1' %>
+          <%= f.select(:emp_sex, [['男', 1], ['女', 2]], :selected=>1)  %>
+        <% elsif @emp.emp_sex == '2' %>
+          <%= f.select(:emp_sex, [['男', 1], ['女', 2]], :selected=>2)  %>
+        <% end %>
+      </p>
+
+      <p>
+        出生日期: &nbsp&nbsp&nbsp&nbsp<%= f.date_field :emp_birth, :value=>@emp.emp_birth.to_time.strftime('%Y-%m-%d')   %>
+      </p>
+
+      <p>
+        身份证号码: <%= f.text_field :emp_card,:value=>@emp.emp_card  %>
+      </p>
+
+      <p>
+        联系电话: &nbsp&nbsp&nbsp&nbsp<%= f.telephone_field :emp_phone, :value=>@emp.emp_phone  %>
+      </p>
+
+      <p>
+        现住址: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= f.text_field :emp_address, :value=>@emp.emp_address %>
+      </p>
+
+      <p>
+      </p>
+      <p>
+        初始密码:&nbsp&nbsp&nbsp&nbsp&nbsp<%= f.text_field :password, :value=>@emp.password %>
+     </p>
+
+     <p id="login_btn">
+       <%= f.submit "提交修改", data: { confirm: '确定提交修改吗?' } %>
+      </p>
+    <% end %>
+  </div>
+ </div>

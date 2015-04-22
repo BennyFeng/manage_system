@@ -1,0 +1,21 @@
+<div class="form">
+  <div>
+    <%= form_for :ance, url: '/managements/createance' do |f| %>
+      <p>
+        公告标题: <%= f.text_field :tittle, size: "49x1", :value=>@ance.tittle %>
+      </p>
+
+      <p>
+        发布人: <%= f.text_field :author, size: "49x1", :value=>@ance.author  %>
+      </p>
+
+      <p>
+        内容: <%= f.text_area :post,  size: "40x20", :value=>@ance.post %>
+      </p>
+
+     <p id="login_btn">
+       <%= f.submit "提交修改", data: { confirm: '确定提交修改吗?' } %>
+      </p>
+    <% end %>
+  </div>
+ </div>

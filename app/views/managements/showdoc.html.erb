@@ -1,0 +1,32 @@
+<table class ="showtb">
+  <tr>
+    <td>员工号码:</td>
+    <td><%= @emp.emp_number %></td>
+    <td> 员工姓名:</td>
+    <td><%= @emp.emo_name %></td>
+  </tr>
+  <tr>
+    <td>性别:</td>
+    <td>
+      <% if @emp.emp_sex == '1' %>
+        男
+      <%  elsif @emp.emp_sex == '2' %>
+        女
+      <% end %>
+    </td>
+    <td>出生日期:</td>
+    <td><%= @emp.emp_birth.to_time.strftime('%Y-%m-%d') %></td>
+  </tr>
+  <tr>
+    <td>身份证号码:</td>
+    <td><%= @emp.emp_card %></td>
+    <td>联系电话:</td>
+    <td><%= @emp.emp_phone %></td>
+  </tr>
+  <tr>
+  <td>现住址:</td>
+  <td><%= @emp.emp_address %></td>
+  <td>初始密码:</td>
+  <td><%= @emp.password %></td>
+  </tr>
+</table>

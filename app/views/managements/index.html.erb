@@ -2,7 +2,7 @@
       <p class ="uname">当前用户:<%= cookies[:emp_num] %></p>
       <p id="time"></p>
       <p class ="mge_logout">
-          <%= link_to '退出帐号', root_path%>
+          <%= link_to '退出帐号', root_path, data: { confirm: '确定退出帐号?' }%>
       </p>
     </div>
     <div id="mge_left">
@@ -15,7 +15,7 @@
       <%= render @pg %>
     </div>
     <div id="mge_foot">
-      ffffffffffffff ffffffffff ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+      清远职业技术学院12网络1班 ©2015
     </div>
 
 

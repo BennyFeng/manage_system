@@ -23,15 +23,19 @@ class ManagementsController < ApplicationController
     end
     @emp = Basic.all
     if  !(@emp.exists?)
-      @tips = "--------------------记录为空--------------------"
+      @tips1 = "--------------------记录为空--------------------"
     end
     @lag = Laborage.all
     if  !(@lag.exists?)
-      @tips = "--------------------记录为空--------------------"
+      @tips2 = "--------------------记录为空--------------------"
     end
     @ance = Announce.all
     if  !(@ance.exists?)
-      @tips = "--------------------记录为空--------------------"
+      @tips3 = "--------------------记录为空--------------------"
+    end
+    @att = Work.all
+    if  !(@att.exists?)
+      @tips4 = "--------------------记录为空--------------------"
     end
   end
 
@@ -149,6 +153,44 @@ class ManagementsController < ApplicationController
     end
   end
 
+  def addatt
+  end
+
+  def createatt
+    @att = Work.new(att_params)
+    if @att.save
+      @alert = 1
+    else
+      @alert = 0
+    end
+  end
+
+  def showatt
+    @att = Work.find(params[:attid])
+  end
+
+  def deleteatt
+      @att = Work.find(params[:attid])
+      if @att.destroy
+        @alert = 1
+      else
+        @alert = 0
+      end
+  end
+
+  def editatt
+    @att = Work.find(params[:attid])
+  end
+
+  def updateatt
+    @att = Work.find(params[:att][:id])
+    if @att.update(att_params)
+      @alert = 1
+    else
+      @alert = 0
+    end
+  end
+
   private
     def doc_params
       params.require(:doc).permit(:emp_number, :emo_name, :emp_sex, :emp_birth, :emp_card, :emp_phone, :emp_address, :password)
@@ -160,6 +202,10 @@ class ManagementsController < ApplicationController
 
     def ance_params
       params.require(:ance).permit(:tittle, :author, :post)
+    end
+
+    def att_params
+      params.require(:att).permit(:number, :emp_number, :emp_holiday, :lateleave, :lateleave_date, :emp_lateleave_money, :emp_private_money)
     end
 
 end

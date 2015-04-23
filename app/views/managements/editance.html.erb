@@ -1,6 +1,9 @@
 <div class="form">
   <div>
-    <%= form_for :ance, url: '/managements/createance' do |f| %>
+    <%= form_for :ance, url: '/managements/updateance' do |f| %>
+      <p style="display:none">
+        <%= f.text_field :id, :value=>@ance.id %>
+      </p>
       <p>
         公告标题: <%= f.text_field :tittle, size: "49x1", :value=>@ance.tittle %>
       </p>

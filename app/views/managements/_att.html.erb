@@ -1,3 +1,42 @@
-<%= link_to content_tag(:span, "添加出勤记录"),{:controller=>'managements', :action=>'index'},{:class=>'ance'} %>
-<%= link_to content_tag(:span, "删除出勤记录"),{:controller=>'managements', :action=>'index'},{:class=>'ance'} %>
-<%= link_to content_tag(:span, "修改出勤记录"),{:controller=>'managements', :action=>'index'},{:class=>'ance'} %>
+<%= link_to content_tag(:span, "添加出勤记录"),{:controller=>'managements', :action=>'addatt'},{:class=>'ance'} %>
+<br >
+<table class="tb">
+  <tr>
+    <th>假单编号</th>
+    <th>员工编号</th>
+    <th>请假类型</th>
+    <th>迟到早退</th>
+    <th>操作</th>
+  </tr>
+  <% @att.each do |work| %>
+    <div style="display:none"><%= @attid=work.id %></div>
+    <tr>
+      <td><%= work.number %></td>
+      <td><%= work.emp_number %></td>
+      <td>
+        <% if work.emp_holiday == 0 %>
+          无
+        <% elsif work.emp_holiday == 1 %>
+          事假
+        <% elsif work.emp_holiday == 2 %>
+          病假
+        <% end %>
+      </td>
+      <td>
+        <% if work.lateleave == 0 %>
+          无
+        <% elsif work.lateleave == 1 %>
+          迟到
+        <% elsif work.lateleave == 2 %>
+          早退
+        <% end %>
+      </td>
+      <td>
+        <%= link_to "详情", {:controller=>'managements', :action=>'showatt', :attid=>@attid}%>
+         <%= link_to "删除", {:controller=>'managements', :action=>'deleteatt', :attid=>@attid}, data: { confirm: '确定删除吗?' }%>
+        <%= link_to "修改", {:controller=>'managements', :action=>'editatt', :attid=>@attid}%>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<div id="tips"><h3><%= @tips4 %></h3></div>

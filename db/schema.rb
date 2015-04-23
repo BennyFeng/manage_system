@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150422083309) do
+ActiveRecord::Schema.define(version: 20150423053858) do
 
   create_table "admins", force: :cascade do |t|
     t.string   "username",   limit: 255
@@ -72,11 +72,12 @@ ActiveRecord::Schema.define(version: 20150422083309) do
     t.integer  "emp_holiday",         limit: 4
     t.date     "emp_private_date"
     t.integer  "emp_private_money",   limit: 4
-    t.date     "emp_lateleave"
     t.integer  "emp_lateleave_money", limit: 4
     t.integer  "basic_id",            limit: 4
     t.datetime "created_at",                    null: false
     t.datetime "updated_at",                    null: false
+    t.integer  "lateleave",           limit: 4
+    t.date     "lateleave_date"
   end
 
   add_index "works", ["basic_id"], name: "index_works_on_basic_id", using: :btree

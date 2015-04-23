@@ -1,0 +1,41 @@
+<div class="form">
+  <div>
+    <%= form_for :att, url: '/managements/createatt' do |f| %>
+      <p>
+        假单编号: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= f.text_field :number  %>
+      </p>
+
+      <p>
+        员工编号: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= f.text_field :emp_number  %>
+      </p>
+
+      <p>
+        请假类型: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= f.select(:emp_holiday, [['', 0], ['事假', 1], ['病假', 2]])  %>
+      </p>
+
+      <p>
+        请假日期: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= f.date_field :emp_private_date  %>
+      </p>
+
+      <p>
+        请假扣除金额: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= f.text_field :emp_private_money  %>
+      </p>
+
+      <p>
+        迟到早退: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= f.select(:lateleave, [['', 0], ['迟到', 1], ['早退', 2]])  %>
+      </p>
+
+      <p>
+        迟到早退扣除金额: <%= f.text_field :emp_lateleave_money  %>
+      </p>
+
+      <p>
+        迟到早退日期: &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<%= f.date_field :lateleave_date  %>
+      </p>
+
+     <p id="login_btn">
+       <%= f.submit "提交", data: { confirm: '确定提交吗?' } %>
+      </p>
+    <% end %>
+  </div>
+ </div>

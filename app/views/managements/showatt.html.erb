@@ -1,0 +1,54 @@
+<table class ="showtb">
+  <tr>
+    <td>假单编号:</td>
+    <td><%= @att.number %></td>
+    <td> 员工编号:</td>
+    <td><%= @att.emp_number %></td>
+  </tr>
+  <tr>
+    <td>请假类型:</td>
+    <td>
+      <% if @att.emp_holiday == 0 %>
+          无
+        <% elsif @att.emp_holiday == 1 %>
+          事假
+        <% elsif @att.emp_holiday == 2 %>
+          病假
+        <% end %>
+    </td>
+    <td>请假日期:</td>
+    <td><%= @att.emp_private_date %></td>
+  </tr>
+  <tr>
+    <td>请假扣除金额:</td>
+    <td>
+      <% if @att.emp_private_money == nil %>
+        0元
+      <% else %>
+        <%= @att.emp_private_money %>元
+      <% end %>
+    </td>
+    <td>迟到早退:</td>
+      <td>
+        <% if @att.lateleave == 0 %>
+          无
+        <% elsif @att.lateleave == 1 %>
+          迟到
+        <% elsif @att.lateleave == 2 %>
+          早退
+        <% end %>
+    </td>
+  </tr>
+  <tr>
+    <td>迟到早退扣除金额:</td>
+    <td>
+      <% if @att.emp_lateleave_money == nil %>
+        0元
+      <% else %>
+        <%= @att.emp_lateleave_money %>元
+      <% end %>
+    </td>
+    <td>迟到早退日期:</td>
+    <td><%= @att.lateleave_date %></td>
+  </tr>
+</table>

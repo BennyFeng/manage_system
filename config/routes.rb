@@ -23,6 +23,12 @@ Rails.application.routes.draw do
   get '/managements/editance', to: 'managements#editance'
   get '/managements/deleteance', to: 'managements#deleteance'
   post '/managements/updateance', to: 'managements#updateance'
+    get '/managements/addatt', to: 'managements#addatt'
+  post '/managements/createatt', to: 'managements#createatt'
+  get '/managements/showatt', to: 'managements#showatt'
+  get '/managements/editatt', to: 'managements#editatt'
+  get '/managements/deleteatt', to: 'managements#deleteatt'
+  post '/managements/updateatt', to: 'managements#updateatt'
   resources :managements
   get '/managements?page=1', to: 'managements#index'
   get '/managements?page=2', to: 'managements#index'

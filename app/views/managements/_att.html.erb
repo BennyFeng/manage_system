@@ -32,11 +32,11 @@
         <% end %>
       </td>
       <td>
-        <%= link_to "详情", {:controller=>'managements', :action=>'showatt', :attid=>@attid}%>
+        <%= link_to "详情", {:controller=>'managements',:action=>'showatt', :attid=>@attid}%>
          <%= link_to "删除", {:controller=>'managements', :action=>'deleteatt', :attid=>@attid}, data: { confirm: '确定删除吗?' }%>
         <%= link_to "修改", {:controller=>'managements', :action=>'editatt', :attid=>@attid}%>
       </td>
     </tr>
   <% end %>
 </table>
-<div id="tips"><h3><%= @tips4 %></h3></div>
+<div id="tips"><h3><%= @tips4 %><br /><%= paginate @att %></h3></div>

@@ -1,0 +1,22 @@
+<div id="login_head"><h1></h1></div>
+<div id="login">
+      <%= form_for :pwd, url: "/users/updatepwd" do |f| %>
+        <p>
+          旧密码: <%= f.password_field :password1  %>
+        </p>
+
+        <p id="tips5"><%= cookies[:tips5] %></p>
+
+        <p>
+          新密码: <%= f.password_field :password2  %>
+        </p>
+
+        <p>
+          <%= cookies[:hint] %>
+        </p>
+
+        <p id="login_btn">
+          <%= f.submit "提交修改", data:{confirm: '确定提交修改吗'} %>
+        </p>
+      <% end %>
+</div>

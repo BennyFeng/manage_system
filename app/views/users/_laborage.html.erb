@@ -1,1 +1,21 @@
-<h1>this is laborage page!</h1>
+<h3 id="per">员工工资信息</h3>
+<table class="tb">
+  <tr>
+    <th>工资发放日期</th>
+    <th>员工姓名</th>
+    <th>实付金额</th>
+    <th>操作</th>
+  </tr>
+  <% @lag.each do |laborage| %>
+    <div style="display:none"><%= @lagid=laborage.id %></div>
+    <tr>
+      <td><%= laborage.pay_month %></td>
+      <td><%= laborage.emp_name %></td>
+      <td><%= laborage.pay_paymoney %></td>
+      <td>
+        <%= link_to "详情", {:controller=>'users',:action=>'showlag', :lid=>@lagid}%>
+      </td>
+    </tr>
+  <% end %>
+</table>
+<div id="tips"><h3><%= @tips2 %><br /><%= paginate @lag %></h3></div>

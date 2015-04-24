@@ -1,6 +1,7 @@
 class ManagementsController < ApplicationController
   def index
     cookies[:hint] = ''
+    cookies[:tips5] = ''
     @tips = ''
     @num = cookies[:emp_num]
     @id = session[:emp_id]
@@ -12,28 +13,28 @@ class ManagementsController < ApplicationController
       redirect_to root_path
     end
     cookies[:hint] = @hint
-    if params[:page] == '1'
+    if params[:pg] == '1'
       @pg = "doc.html.erb"
-    elsif params[:page] == '2'
+    elsif params[:pg] == '2'
       @pg = "lag.html.erb"
-    elsif params[:page] == '3'
+    elsif params[:pg] == '3'
       @pg = "att.html.erb"
     else
       @pg = "announce.html.erb"
     end
-    @emp = Basic.all
+    @emp = Basic.all.page(params[:page]).per(14)
     if  !(@emp.exists?)
       @tips1 = "--------------------记录为空--------------------"
     end
-    @lag = Laborage.all
+    @lag = Laborage.all.page(params[:page]).per(14)
     if  !(@lag.exists?)
       @tips2 = "--------------------记录为空--------------------"
     end
-    @ance = Announce.all
+    @ance = Announce.all.page(params[:page]).per(14)
     if  !(@ance.exists?)
       @tips3 = "--------------------记录为空--------------------"
     end
-    @att = Work.all
+    @att = Work.all.page(params[:page]).per(14)
     if  !(@att.exists?)
       @tips4 = "--------------------记录为空--------------------"
     end
@@ -44,6 +45,25 @@ class ManagementsController < ApplicationController
   end
 
   def createdoc
+    cookies[:hint1] = ""
+    cookies[:hint2] = ""
+    if params[:doc][:emp_number].size >8 
+      cookies[:hint1] = "员工编号不能超过8个数字"
+      if params[:doc][:password].size < 8
+        cookies[:hint2] = "密码不能少于8位"
+      end
+      redirect_to "/managements/adddoc"
+    elsif params[:doc][:emp_number].size <4 
+      cookies[:hint1] = "员工编号不能少于6个数字"
+      if params[:doc][:password].size < 8
+        cookies[:hint2] = "密码不能少于8位"
+      end
+      redirect_to "/managements/adddoc"
+    end
+    if params[:doc][:password].size < 8
+      cookies[:hint2] = "密码不能少于8位"
+      redirect_to "/managements/adddoc"
+    end
     @doc = Basic.new(doc_params)
     if @doc.save
       @alert = 1
@@ -191,6 +211,36 @@ class ManagementsController < ApplicationController
     end
   end
 
+  def newpwd
+    @pwd = Admin.where("username = ?", cookies[:emp_num]).first
+  end
+
+  def updatepwd
+      @opwd = Admin.where("password = ? AND username = ?", params[:pwd][:password1], cookies[:emp_num]).first
+    if @opwd != nil
+      @npwd = Admin.find_by(username: cookies[:emp_num])
+      @npwd.update(password: params[:pwd][:password2])
+    else
+      cookies[:tips5] = "旧密码错误，请重新输入"
+      redirect_to "/managements/newpwd"
+    end
+  end
+
+  def authdoc
+    cookies[:eid] = params[:eid]
+    @emp = Basic.find_by("id = ?", cookies[:eid])
+  end
+
+  def createadmin
+    @auth = Admin.new(auth_params)
+    @auth.save
+  end
+
+  def uauthdoc
+    @uaut = Admin.where("username = ?", cookies[:uaut]).first
+    @uaut.destroy
+  end
+
   private
     def doc_params
       params.require(:doc).permit(:emp_number, :emo_name, :emp_sex, :emp_birth, :emp_card, :emp_phone, :emp_address, :password)
@@ -207,5 +257,13 @@ class ManagementsController < ApplicationController
     def att_params
       params.require(:att).permit(:number, :emp_number, :emp_holiday, :lateleave, :lateleave_date, :emp_lateleave_money, :emp_private_money)
     end
+
+  def pwd_params
+    params.require(:pwd).permit( :password)
+  end
+
+  def auth_params
+    params.require(:auth).permit( :password, :username)
+  end
 
 end

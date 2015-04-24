@@ -10,8 +10,8 @@
   <% @ance.each do |announce| %>
     <div style="display:none"><%= @postid=announce.id %></div>
     <tr>
-      <td><%= link_to announce.tittle, {:controller=>'managements', :action=>'showance', :anid=>@postid}%></td>
-      <td><%= announce.author %></td>
+      <td><%= link_to announce.tittle[0,13]+"……", {:controller=>'managements',:action=>'showance', :anid=>@postid}%></td>
+      <td><%= announce.author[0,13]+"……" %></td>
       <td><%= announce.created_at.to_time.strftime('%Y-%m-%d %H:%M:%S') %></td>
       <td>
          <%= link_to "删除", {:controller=>'managements', :action=>'deleteance', :anid=>@postid}, data: { confirm: '确定删除吗?' }%>
@@ -20,4 +20,5 @@
     </tr>
   <% end %>
 </table>
-<div id="tips"><h3><%= @tips3 %></h3></div>
+
+<div id="tips"><h3><%= @tips3 %><br /><%= paginate @ance %></h3></div>

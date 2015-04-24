@@ -4,12 +4,13 @@
       <p class ="mge_logout">
           <%= link_to '退出帐号', root_path, data: { confirm: '确定退出帐号?' }%>
       </p>
+      <p class ="mge_logout"><%= link_to '修改密码', "/managements/newpwd" %></p>
     </div>
     <div id="mge_left">
       <%= link_to content_tag(:span, "企业公告"),{:controller=>'managements', :action=>'index'},{:class=>'sider'} %>
-      <%= link_to content_tag(:span, "职工档案"),{:controller=>'managements', :action=>'index', :page=>1},{:class=>'sider'} %>
-      <%= link_to content_tag(:span, "薪酬记录"),{:controller=>'managements', :action=>'index', :page=>2},{:class=>'sider'} %>
-      <%= link_to content_tag(:span, "出勤记录"),{:controller=>'managements', :action=>'index', :page=>3},{:class=>'sider'} %>
+      <%= link_to content_tag(:span, "职工档案"),{:controller=>'managements', :action=>'index', :pg=>1},{:class=>'sider'} %>
+      <%= link_to content_tag(:span, "薪酬记录"),{:controller=>'managements', :action=>'index', :pg=>2},{:class=>'sider'} %>
+      <%= link_to content_tag(:span, "出勤记录"),{:controller=>'managements', :action=>'index', :pg=>3},{:class=>'sider'} %>
     </div>
     <div id="mge_right">
       <%= render @pg %>

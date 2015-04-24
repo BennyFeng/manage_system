@@ -14,11 +14,11 @@
       <td><%= laborage.emp_name %></td>
       <td><%= laborage.pay_paymoney %></td>
       <td>
-        <%= link_to "详情", {:controller=>'managements', :action=>'showlag', :lid=>@lagid}%>
+        <%= link_to "详情", {:controller=>'managements',:action=>'showlag', :lid=>@lagid}%>
          <%= link_to "删除", {:controller=>'managements', :action=>'deletelag', :lid=>@lagid}, data: { confirm: '确定删除吗?' }%>
         <%= link_to "修改", {:controller=>'managements', :action=>'editlag', :lid=>@lagid}%>
       </td>
     </tr>
   <% end %>
 </table>
-<div id="tips"><h3><%= @tips2 %></h3></div>
+<div id="tips"><h3><%= @tips2 %><br /><%= paginate @lag %></h3></div>

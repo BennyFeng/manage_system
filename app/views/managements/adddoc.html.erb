@@ -5,6 +5,8 @@
         员工号码: &nbsp&nbsp&nbsp&nbsp<%= f.text_field :emp_number  %>
       </p>
 
+      <p id="tips5"><%= cookies[:hint1] %></p>
+
       <p>
         员工姓名: &nbsp&nbsp&nbsp&nbsp<%= f.text_field :emo_name  %>
       </p>
@@ -34,9 +36,12 @@
         初始密码:&nbsp&nbsp&nbsp&nbsp&nbsp<%= f.text_field :password, :value=>"123456" %>
      </p>
 
+     <p id="tips5"><%= cookies[:hint2] %></p>
+
      <p id="login_btn">
        <%= f.submit "提交", data: { confirm: '确定提交吗?' } %>
       </p>
     <% end %>
   </div>
  </div>
+   <p><%= link_to "返回首页", managements_path+"?pg=1" %></p>

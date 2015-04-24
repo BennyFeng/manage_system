@@ -8,9 +8,16 @@
     <th>操作</th>
   </tr>
   <% @emp.each do |employee| %>
-    <div style="display:none"><%= @empid=employee.id %></div>
+    <div style="display:none"><%= cookies[:uaut] = employee.emp_number %><%= @empid=employee.id %></div>
     <tr>
-      <td><%= employee.emp_number %></td>
+      <td>
+        <%= employee.emp_number %>
+        <%  if Admin.where("username =  ?", employee.emp_number).first != nil%>
+          <i>(已授权)</i>
+        <% else %>
+          <i></i>
+        <% end %>
+      </td>
       <td><%= employee.emo_name %></td>
       <td>
         <% if employee.emp_sex == '1' %>
@@ -20,12 +27,14 @@
         <% end %>
       </td>
       <td>
-        <%= link_to "详情", {:controller=>'managements', :action=>'showdoc', :eid=>@empid}%>
+        <%= link_to "详情", {:controller=>'managements',:action=>'showdoc', :eid=>@empid}%>
          <%= link_to "删除", {:controller=>'managements', :action=>'deletedoc', :eid=>@empid}, data: { confirm: '确定删除吗?' }%>
         <%= link_to "修改", {:controller=>'managements', :action=>'editdoc', :eid=>@empid}%>
+        <%= link_to "授权管理", {:controller=>'managements', :action=>'authdoc', :eid=>@empid}%>
+        <%= link_to "取消授权", {:controller=>'managements', :action=>'uauthdoc', :eid=>@empid}%>
       </td>
     </tr>
   <% end %>
 </table>
-<div id="tips"><h3><%= @tips1 %></h3></div>
+<div id="tips"><h3><%= @tips1 %><br /><%= paginate @emp %></h3></div>
 

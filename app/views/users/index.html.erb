@@ -4,17 +4,18 @@
       <p class ="mge_logout">
           <%= link_to '退出帐号', root_path%>
       </p>
+      <p class ="mge_logout"><%= link_to '修改密码', "/users/newpwd" %></p>
     </div>
     <div id="mge_left">
       <%= link_to content_tag(:span, "企业公告"),{:controller=>'users', :action=>'index'},{:class=>'sider'} %>
-      <%= link_to content_tag(:span, "个人档案"),{:controller=>'users', :action=>'index',:page=>1},{:class=>'sider'} %>
-      <%= link_to content_tag(:span, "工资信息"),{:controller=>'users', :action=>'index',:page=>2},{:class=>'sider'} %>
-      <%= link_to content_tag(:span, "出勤信息"),{:controller=>'users', :action=>'index',:page=>3},{:class=>'sider'} %>
+      <%= link_to content_tag(:span, "个人档案"),{:controller=>'users', :action=>'index',:pg=>1},{:class=>'sider'} %>
+      <%= link_to content_tag(:span, "工资信息"),{:controller=>'users', :action=>'index',:pg=>2},{:class=>'sider'} %>
+      <%= link_to content_tag(:span, "出勤信息"),{:controller=>'users', :action=>'index',:pg=>3},{:class=>'sider'} %>
     </div>
     <div id="mge_right">
       <%= render @pg %>
     </div>
      <div id="mge_foot">
-      ffffffffffffff ffffffffff ffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffffff
+      清远职业技术学院12网络1班 ©2015
     </div>
 

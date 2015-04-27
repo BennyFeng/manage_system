@@ -8,11 +8,11 @@
     <th>操作</th>
   </tr>
   <% @emp.each do |employee| %>
-    <div style="display:none"><%= cookies[:uaut] = employee.emp_number %><%= @empid=employee.id %></div>
+    <div style="display:none"><%= @empid=employee.id %></div>
     <tr>
       <td>
         <%= employee.emp_number %>
-        <%  if Admin.where("username =  ?", employee.emp_number).first != nil%>
+        <%  if  Admin.where("username =  ?", employee.emp_number).first%>
           <i>(已授权)</i>
         <% else %>
           <i></i>
@@ -31,7 +31,7 @@
          <%= link_to "删除", {:controller=>'managements', :action=>'deletedoc', :eid=>@empid}, data: { confirm: '确定删除吗?' }%>
         <%= link_to "修改", {:controller=>'managements', :action=>'editdoc', :eid=>@empid}%>
         <%= link_to "授权管理", {:controller=>'managements', :action=>'authdoc', :eid=>@empid}%>
-        <%= link_to "取消授权", {:controller=>'managements', :action=>'uauthdoc', :eid=>@empid}%>
+        <%= link_to "取消授权", {:controller=>'managements', :action=>'uauthdoc', :enum=>employee.emp_number}%>
       </td>
     </tr>
   <% end %>

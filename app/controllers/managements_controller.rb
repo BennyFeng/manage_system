@@ -237,7 +237,7 @@ class ManagementsController < ApplicationController
   end
 
   def uauthdoc
-    @uaut = Admin.where("username = ?", cookies[:uaut]).first
+    @uaut = Admin.where("username = ?", params[:enum]).first
     @uaut.destroy
   end
 

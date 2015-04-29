@@ -22,19 +22,19 @@ class ManagementsController < ApplicationController
     else
       @pg = "announce.html.erb"
     end
-    @emp = Basic.all.page(params[:page]).per(14)
+    @emp = Basic.all.page(params[:page]).per(7)
     if  !(@emp.exists?)
       @tips1 = "--------------------记录为空--------------------"
     end
-    @lag = Laborage.all.page(params[:page]).per(14)
+    @lag = Laborage.all.page(params[:page]).per(7)
     if  !(@lag.exists?)
       @tips2 = "--------------------记录为空--------------------"
     end
-    @ance = Announce.all.page(params[:page]).per(14)
+    @ance = Announce.all.page(params[:page]).per(7)
     if  !(@ance.exists?)
       @tips3 = "--------------------记录为空--------------------"
     end
-    @att = Work.all.page(params[:page]).per(14)
+    @att = Work.all.page(params[:page]).per(7)
     if  !(@att.exists?)
       @tips4 = "--------------------记录为空--------------------"
     end
@@ -49,19 +49,9 @@ class ManagementsController < ApplicationController
     cookies[:hint2] = ""
     if params[:doc][:emp_number].size >8 
       cookies[:hint1] = "员工编号不能超过8个数字"
-      if params[:doc][:password].size < 8
-        cookies[:hint2] = "密码不能少于8位"
-      end
       redirect_to "/managements/adddoc"
     elsif params[:doc][:emp_number].size <4 
       cookies[:hint1] = "员工编号不能少于6个数字"
-      if params[:doc][:password].size < 8
-        cookies[:hint2] = "密码不能少于8位"
-      end
-      redirect_to "/managements/adddoc"
-    end
-    if params[:doc][:password].size < 8
-      cookies[:hint2] = "密码不能少于8位"
       redirect_to "/managements/adddoc"
     end
     @doc = Basic.new(doc_params)
@@ -238,7 +228,11 @@ class ManagementsController < ApplicationController
 
   def uauthdoc
     @uaut = Admin.where("username = ?", params[:enum]).first
-    @uaut.destroy
+    if @uaut != nil
+      @uaut.destroy
+    else
+      redirect_to '/managements?pg=1'
+    end
   end
 
   private
